@@ -24,16 +24,30 @@ Product.init(
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
       // Validate Decimal
+      validate: {
+        // Not exactly sure _____________________________________________
+        isDecimal: true
+      }
     },
     stock: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      // Default value is 10
+      // Default value is 10 (Not Sure)__________________________________
+      defaultValue: 10,
       // Validate value is numeric
+      validate: {
+        // Not exactly sure______________________________________________
+        isNumeric: true,
+      }
     },
     category_id: {
       type: DataTypes.INTEGER,
       // Reference the Category Model's id
+      references: {
+        model: 'category',
+        key: 'id',
+        unique: false
+      }
     }
   },
   {
